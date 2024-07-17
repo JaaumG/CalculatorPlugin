@@ -6,3 +6,7 @@ prefix: CoorSaver
 authors: [ João Guilherme ]
 description: CoordSaver is a survival friendly plugin that register your current location
 website: https://joaoguilherme.dev
+commands:
+  calc:
+    description: Calculate a math expression
+    usage: /calc <expression>
