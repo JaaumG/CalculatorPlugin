@@ -1,0 +1,8 @@
+name: Calculator
+version: '1.0-SNAPSHOT'
+main: dev.joao_guilherme.calculator.Calculator
+api-version: '1.21'
+prefix: CoorSaver
+authors: [ João Guilherme ]
+description: CoordSaver is a survival friendly plugin that register your current location
+website: https://joaoguilherme.dev
