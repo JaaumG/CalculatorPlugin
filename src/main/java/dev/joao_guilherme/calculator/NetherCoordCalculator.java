@@ -11,6 +11,9 @@ public class NetherCoordCalculator implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (commandSender instanceof Player player) {
+            if (strings.length == 0) {
+                player.sendMessage("As coordenadas no Nether são: " + player.getLocation().getBlockX() / 8 + " " + player.getLocation().getBlockY() + " " + player.getLocation().getBlockZ() / 8);
+            }
             if (strings.length == 3) {
                 try {
                     int x = Integer.parseInt(strings[0]);
