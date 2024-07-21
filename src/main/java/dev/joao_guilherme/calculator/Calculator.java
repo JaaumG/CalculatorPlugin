@@ -11,6 +11,8 @@ public final class Calculator extends JavaPlugin {
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage("[Calculator] Plugin initialized!");
         Objects.requireNonNull(getCommand("calc")).setExecutor(new CalcCommand());
+        Objects.requireNonNull(getCommand("distance")).setExecutor(new DistanceCalculator());
+        Objects.requireNonNull(getCommand("nethercoord")).setExecutor(new NetherCoordCalculator());
     }
 
     @Override

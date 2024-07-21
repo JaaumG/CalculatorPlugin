@@ -10,3 +10,9 @@ commands:
   calc:
     description: Calculate a math expression
     usage: /calc <expression>
+  distance:
+    description: Calculate the distance between two locations
+    usage: /distance <player>
+  nethercoord:
+    description: Calculate the nether coordinates of a location
+    usage: /nethercoord [x] [y] [z]
