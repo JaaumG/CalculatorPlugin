@@ -21,6 +21,10 @@ public class DistanceCalculator implements CommandExecutor, TabExecutor {
             if (strings.length == 1) {
                 Player target = Bukkit.getPlayer(strings[0]);
                 if (target != null) {
+                    if (!target.getWorld().equals(player.getWorld())) {
+                        player.sendMessage(Component.text("Os jogadores precisam estar no mesmo mundo!").color(NamedTextColor.RED));
+                        return true;
+                    }
                     double distance = player.getLocation().distance(target.getLocation());
                     player.sendMessage(Component.text(String.format("A distância entre você e %s é de %.2f blocos.", target.getName(), distance)).color(NamedTextColor.AQUA));
                 } else {
