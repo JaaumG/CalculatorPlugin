@@ -1,5 +1,7 @@
 package dev.joao_guilherme.calculator;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,23 +22,21 @@ public class DistanceCalculator implements CommandExecutor, TabExecutor {
                 Player target = Bukkit.getPlayer(strings[0]);
                 if (target != null) {
                     double distance = player.getLocation().distance(target.getLocation());
-                    player.sendMessage("A distância entre você e " + target.getName() + " é de " + distance + " blocos.");
+                    player.sendMessage(Component.text(String.format("A distância entre você e %s é de %.2f blocos.", target.getName(), distance)).color(NamedTextColor.AQUA));
                 } else {
-                    player.sendMessage("Jogador não encontrado!");
+                    player.sendMessage(Component.text("Jogador não encontrado!").color(NamedTextColor.RED));
                 }
             } else {
-                player.sendMessage("Uso correto: /distance <jogador>");
+                player.sendMessage(Component.text("Uso correto: /distance <jogador>").color(NamedTextColor.RED));
             }
         }
         return true;
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (commandSender instanceof Player player) {
-            if (strings.length == 0) {
-                return Bukkit.getOnlinePlayers().stream().filter(p -> p.getUniqueId() != player.getUniqueId()).map(Player::getName).toList();
-            }
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (args.length == 1) {
+            return Bukkit.getOnlinePlayers().stream().map(Player::getName).toList();
         }
         return List.of();
     }
