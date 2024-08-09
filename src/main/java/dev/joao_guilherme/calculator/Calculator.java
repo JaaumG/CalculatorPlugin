@@ -13,6 +13,7 @@ public final class Calculator extends JavaPlugin {
         Objects.requireNonNull(getCommand("calc")).setExecutor(new CalcCommand());
         Objects.requireNonNull(getCommand("distance")).setExecutor(new DistanceCalculator());
         Objects.requireNonNull(getCommand("nethercoord")).setExecutor(new NetherCoordCalculator());
+        Bukkit.getConsoleSender().sendMessage("[Calculator] Commands registered!");
     }
 
     @Override
